@@ -27,7 +27,8 @@ def run():
     
     while True:
         time.sleep(0.1)
-        
+        x = raw_input()
+        checker.checkForMatches(x)
     pass
 
 if __name__ == "__main__":

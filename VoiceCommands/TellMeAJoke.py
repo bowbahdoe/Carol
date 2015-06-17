@@ -27,8 +27,8 @@ class TellMeAJoke(Command):
         ["Which vedge tables do golfers like best", "Greens!"],
         ["Why is a book like a tree", "Because it is full of leaves"],
         ["What do you get when you cross the sea with a burgular", "A crime wave"],
-        ["What is a vampires least favorite puzzle", "a cross word"]
-
+        ["What is a vampires least favorite puzzle", "a cross word"],
+        ["What do you get when you cross an elephant and a rhino", "eliphino"]
         ]
         joke = random.choice(self.puns)
         print joke[0]

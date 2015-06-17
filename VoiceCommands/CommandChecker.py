@@ -6,6 +6,7 @@ from Carol.VoiceCommands.ILoveYou import ILoveYou
 from Carol.VoiceCommands.AngerTowardsCarol import AngerTowardsCarol
 from Carol.VoiceCommands.OpenWebsite import OpenYoutube,OpenGoogle,OpenFacebook
 from Carol.VoiceCommands.ShutdownComputer import ShutdownComputer
+from Carol.VoiceCommands.SearchGoogle import SearchGoogle
 class NoMatchError(Exception):
     pass
 
@@ -22,10 +23,11 @@ class CommandChecker:
         self.commandsList.append(OpenGoogle())
         self.commandsList.append(OpenFacebook())
         self.commandsList.append(ShutdownComputer())
-
+        self.commandsList.append(SearchGoogle())
     def checkForMatches(self, text):
         matchFound = False
         for command in self.commandsList:
+            print command
             if(command.checkIfMatches(text)):
                 command.action()
                 matchFound = True

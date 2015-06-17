@@ -7,9 +7,9 @@ sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 from SpeechSynthesis.speak import say
 class Fuck(Command):
     def __init__(self):
-        pass
+        self.pattern = re.compile(r'fuck')
     def checkIfMatches(self, input):
-        pattern = re.compile(r'fuck')
+        pattern = self.pattern
         if(pattern.search(input.lower()) != None):
             return True
         else:

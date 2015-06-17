@@ -11,9 +11,9 @@ from time import sleep
 
 class AngerTowardsCarol(Command):
     def __init__(self):
-        pass
+        self.pattern = re.compile(r'f\*\*\* you')
     def checkIfMatches(self, input):
-        pattern = re.compile(r'f\*\*\* you')
+        pattern = self.pattern
         if(pattern.search(input.lower()) != None):
             return True
         else:
