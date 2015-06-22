@@ -1,21 +1,21 @@
-from Carol.Movement.Motor import Motor
+try:
+    from kovan import motor,off
+except ImportError:
+    raise Exception("No robot connected")
 leftMotorPort = 0
-rightMotorPort = 1
-
-leftMotor = Motor(leftMotorPort)
-rightMotor = Motor(rightMotorPort)
+rightMotorPort = 0
 def driveForwards(power):
-    leftMotor.setPower(power)
-    rightMotor.setPower(power)
+    motor(leftMotorPort,power)
+    motor(rightMotorPort,power)
 def driveBackwards(power):
-    leftMotor.setPower(-power)
-    rightMotor.setPower(-power)
+    motor(rightMotorPort,-power)
+    motor(leftMotorPort,-power)
 def turnLeft(power):
-    leftMotor.setPower(-power)
-    rightMotor.setPower(power)
+    motor(leftMotorPort,-power)
+    motor(rightMotorPort,power)
 def turnRight(power):
-    leftMotor.setPower(power)
-    rightMotor.setPower(-power)
+    motor(leftMotorPort,power)
+    motor(rightMotorPort,-power)
 def stopMoving():
-    leftMotor.stopMotor()
-    rightMotor.stopMotor()
+    off(leftMotorPort)
+    off(rightMotorPort)

@@ -1,4 +1,4 @@
-class Vector3D(Object):
+class Vector3D:
     def __init__(self,x=0,y=0,z=0):
         assert (not(x==0 and y==0 and z==0))
         self.x = x

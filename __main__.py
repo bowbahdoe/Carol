@@ -24,12 +24,22 @@ def run():
     recognizer = sr.Recognizer()
 
     recognizerThread = recognizer.listen_in_background(audioSource,onSpeech)
-    
+
     while True:
         time.sleep(0.1)
         x = raw_input()
         checker.checkForMatches(x)
     pass
+def runRobot():
+    import time
+    from Carol.Movement.movement import driveForwards, stopMoving
+    driveForwards()
+    time.sleep(3)
+    stopMoving()
 
 if __name__ == "__main__":
-    run()
+    try:
+        import kovan
+
+    except:
+        run()
