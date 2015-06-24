@@ -27,7 +27,6 @@ class CommandChecker:
     def checkForMatches(self, text):
         matchFound = False
         for command in self.commandsList:
-            print command
             if(command.checkIfMatches(text)):
                 command.action()
                 matchFound = True

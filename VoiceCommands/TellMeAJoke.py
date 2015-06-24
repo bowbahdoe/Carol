@@ -11,10 +11,9 @@ from time import sleep
 
 class TellMeAJoke(Command):
     def __init__(self):
-        pass
+        self.pattern = re.compile(r'tell me a joke')
     def checkIfMatches(self, input):
-        pattern = re.compile(r'tell me a joke')
-        if(pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) != None):
             return True
         else:
             return False

@@ -10,9 +10,9 @@ class OpenWebsite(Command):
     def __init__(self):
         self.site = ""
         self.regex = r''
+        self.pattern = ""
     def checkIfMatches(self, input):
-        pattern = re.compile(self.regex)
-        if(pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) != None):
             return True
         else:
             return False
@@ -23,11 +23,14 @@ class OpenYoutube(OpenWebsite):
     def __init__(self):
         self.site = "http://www.youtube.com"
         self.regex = r'open youtube'
+        self.pattern = re.compile(self.regex)
 class OpenGoogle(OpenWebsite):
     def __init__(self):
         self.site = "http://www.google.com"
         self.regex = r'open google'
+        self.pattern = re.compile(self.regex)
 class OpenFacebook(OpenWebsite):
     def __init__(self):
         self.site = "http://www.facebook.com"
         self.regex = r'open facebook'
+        self.pattern = re.compile(self.regex)

@@ -5,9 +5,9 @@ class SearchGoogle(Command):
     def __init__(self):
         self.site = "http://www.google.com#q="
         self.regex = r'search for'
+        self.pattern = re.compile(self.regex)
     def checkIfMatches(self, input):
-        pattern = re.compile(self.regex)
-        if(pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) != None):
             self.site+=input[input.find("search for")+11:]
             return True
             print self.site

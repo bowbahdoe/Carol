@@ -8,14 +8,12 @@ sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 from SpeechSynthesis.speak import say
 class ShutdownComputer(Command):
     def __init__(self):
-        pass
+        self.pattern = re.compile(r'shut down computer')
     def checkIfMatches(self, input):
-        pattern = re.compile(r'shut down computer')
         if(pattern.search(input.lower()) != None):
             return True
         else:
             return False
     def action(self):
         say("Shutting down computer")
-
         os.system("poweroff")

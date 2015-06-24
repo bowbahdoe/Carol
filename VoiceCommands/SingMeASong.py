@@ -11,10 +11,9 @@ from time import sleep
 
 class SingMeASong(Command):
     def __init__(self):
-        pass
+        self.pattern = re.compile(r'sing me a song')
     def checkIfMatches(self, input):
-        pattern = re.compile(r'sing me a song')
-        if(pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) != None):
             return True
         else:
             return False
