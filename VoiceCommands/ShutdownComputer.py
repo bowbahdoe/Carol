@@ -10,7 +10,7 @@ class ShutdownComputer(Command):
     def __init__(self):
         self.pattern = re.compile(r'shut down computer')
     def checkIfMatches(self, input):
-        if(pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) != None):
             return True
         else:
             return False
