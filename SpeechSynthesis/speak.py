@@ -1,4 +1,4 @@
-#from ctypes import *
+
 import os
 import platform
 #cdll.LoadLibrary(os.path.abspath(__file__)[0:-9]+"/libspeak.so")
