@@ -6,6 +6,7 @@ sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 
 from SpeechSynthesis.speak import say
 class Fuck(Command):
+    """Condemns swearing"""
     def __init__(self):
         self.pattern = re.compile(r'fuck')
     def checkIfMatches(self, input):

@@ -10,6 +10,7 @@ import random
 from time import sleep
 
 class SingMeASong(Command):
+    """Sings Daisy Bell"""
     def __init__(self):
         self.pattern = re.compile(r'sing me a song')
     def checkIfMatches(self, input):

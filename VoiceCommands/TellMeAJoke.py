@@ -10,6 +10,7 @@ import random
 from time import sleep
 
 class TellMeAJoke(Command):
+    """Tells a random joke"""
     def __init__(self):
         self.pattern = re.compile(r'tell me a joke')
     def checkIfMatches(self, input):

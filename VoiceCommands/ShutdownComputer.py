@@ -7,6 +7,7 @@ sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 
 from SpeechSynthesis.speak import say
 class ShutdownComputer(Command):
+    """Shutsdown the computer. Needs to be ran in sudo"""
     def __init__(self):
         self.pattern = re.compile(r'shut down computer')
     def checkIfMatches(self, input):

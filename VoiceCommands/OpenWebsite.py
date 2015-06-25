@@ -7,6 +7,7 @@ sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 from SpeechSynthesis.speak import say
 import webbrowser
 class OpenWebsite(Command):
+    """Abstract class for opening a website"""
     def __init__(self):
         self.site = ""
         self.regex = r''
@@ -20,16 +21,19 @@ class OpenWebsite(Command):
         print "Opening Website: " + self.site
         webbrowser.open(self.site)
 class OpenYoutube(OpenWebsite):
+    """Opens Youtube"""
     def __init__(self):
         self.site = "http://www.youtube.com"
         self.regex = r'open youtube'
         self.pattern = re.compile(self.regex)
 class OpenGoogle(OpenWebsite):
+    """Opens Google"""
     def __init__(self):
         self.site = "http://www.google.com"
         self.regex = r'open google'
         self.pattern = re.compile(self.regex)
 class OpenFacebook(OpenWebsite):
+    """Opens Facebook"""
     def __init__(self):
         self.site = "http://www.facebook.com"
         self.regex = r'open facebook'

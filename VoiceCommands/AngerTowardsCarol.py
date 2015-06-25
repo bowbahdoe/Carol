@@ -10,6 +10,7 @@ import random
 from time import sleep
 
 class AngerTowardsCarol(Command):
+    """Condemns direct anger"""
     def __init__(self):
         self.pattern = re.compile(r'f\*\*\* you')
     def checkIfMatches(self, input):
