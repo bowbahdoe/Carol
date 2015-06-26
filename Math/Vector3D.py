@@ -1,7 +1,6 @@
 """Class to contain 3D vectors"""
 class Vector3D:
     def __init__(self,x=0,y=0,z=0):
-        assert (not(x==0 and y==0 and z==0))
         self.x = x
         self.y = y
         self.z = z
@@ -18,12 +17,12 @@ class Vector3D:
         """finds dotProduct of two vectors"""
         assert isinstance(otherVector,Vector3D)
         pass
-def average(itemList):
-    """finds average of a list of numbers"""
-    sum(itemList)/len(itemList)
-def sum(itemList):
-    """finds sum of a list of numbers"""
-    total = 0
-    for i in itemList:
-        total+=i
-    return total
+    def getXComponent(self):
+        """returns the X component of the vector"""
+        return self.x
+    def getYComponent(self):
+        """returns the Y component of the vector"""
+        return self.y
+    def getZComponent(self):
+        """returns the Z component of the vector"""
+        return self.z

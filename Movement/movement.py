@@ -6,6 +6,8 @@ leftMotorPort = 0
 rightMotorPort = 0
 SKEW_MOVEMENT_ADJUSTER = 1 #adjust to compensate for wheel difference
 def motor_adjusted(port,power):
+    """same as the motor function, except it adjusts for difference in
+    how the weight is distributed to the wheels"""
     if(port==leftMotorPort):
         motor(port,power*SKEW_MOVEMENT_ADJUSTER)
     else:

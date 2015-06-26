@@ -17,8 +17,8 @@ def shutil_which(pgm):
 def say(words):
     if(platform.system() == 'Darwin'):
         command = "say " + words
-    espeak = shutil_which("espeak")
-    if espeak != None:
+    flite = shutil_which("flite")
+    if flite == None:
         command = "espeak  '" + words + "'" #-ven+f3 -p50 -s150
     else:
         command = "padsp flite -voice slt -t '" + words + "'" #kal16
