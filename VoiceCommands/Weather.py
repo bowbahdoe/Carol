@@ -1,10 +1,11 @@
 import re
 from Carol.VoiceCommands.Command import Command
 from Carol.SpeechSynthesis import say
+forecast_api_exists = True
 try:
     import forecastio
-except:
-    print "Please install forecastio to get the weather"
+except ImportError:
+    forecast_api_exists = False
 class WeatherTomorrow(Command):
     """Tells You the weather for the next day"""
     def __init__(self):
@@ -15,6 +16,8 @@ class WeatherTomorrow(Command):
         self.latitude = 51.5033630
         self.longitude = -0.1276250
     def checkIfMatches(self, input):
+        if(not(forecast_api_exists)):
+            return False
         if(self.pattern.search(input.lower()) != None):
             return True
         else:
