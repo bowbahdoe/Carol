@@ -1,7 +1,11 @@
 import re
 from Carol.VoiceCommands.Command import Command
 from Carol.SpeechSynthesis import say
-from Carol.Games.Keys.main import main
+pygame_installed = True
+try:pass
+    #from pygame.locals import *
+except ImportError:
+    pygame_installed = False
 from os import path
 import os
 import threading
@@ -12,6 +16,8 @@ class RunKeys(Command):
         self.regex = r'(run kies|frankie\'s|yankees|remkees)'
         self.pattern = re.compile(self.regex)
     def checkIfMatches(self, input):
+        if(not(pygame_installed)):
+            return False
         if(self.pattern.search(input.lower()) != None):
             return True
         else:
