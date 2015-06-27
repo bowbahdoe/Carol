@@ -7,7 +7,7 @@ from Carol.VoiceCommands.OpenWebsite import OpenYoutube,OpenGoogle,OpenFacebook
 from Carol.VoiceCommands.ShutdownComputer import ShutdownComputer
 from Carol.VoiceCommands.SearchGoogle import SearchGoogle
 from Carol.VoiceCommands.Weather import WeatherTomorrow
-from Carol.VoiceCommands.RunGame import RunKeys
+from Carol.VoiceCommands.RunKeys import RunKeys
 class NoMatchError(Exception):
     pass
 

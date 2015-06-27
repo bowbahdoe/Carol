@@ -12,14 +12,14 @@ from java.lang import ClassLoader
 class Image(object):
     """
     **pyj2d.image**
-    
+
     * pyj2d.image.load
     """
 
     def __init__(self):
         """
         Initialize Image module.
-        
+
         Module initialization creates pyj2d.image instance.
         """
         pass
@@ -30,20 +30,16 @@ class Image(object):
         Return the bufferedimage as a Surface.
         """
         try:
-            try:
-                f = env.japplet.class.getResource(img_file.replace('\\','/'))    #java uses /, not os.path Windows \
-                if not f:
-                    raise
-            except:
-                cload = ClassLoader.getSystemClassLoader()
-                f = cload.getResourceAsStream(img_file.replace('\\','/'))
-                print "fe"
-                
+
+            f = env.japplet.class.getResource(img_file.replace('\\','/'))    #java uses /, not os.path Windows \
+            if not f:
+                raise
+
+
         except:
-            
+
             f = File(img_file)
-        
+
         bimage = ImageIO.read(f)
         surf = Surface(bimage)
         return surf
-
