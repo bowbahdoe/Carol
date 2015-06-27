@@ -19,7 +19,7 @@ def shutil_which(pgm):
         if os.path.exists(p) and os.access(p, os.X_OK):
             return p
 try:
-    from pygamde.locals import *
+    from pygame.locals import *
 except ImportError:
     pygame_installed = False
     if(shutil_which("jython")!=None):
