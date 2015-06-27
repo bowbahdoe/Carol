@@ -7,6 +7,7 @@ from Carol.VoiceCommands.OpenWebsite import OpenYoutube,OpenGoogle,OpenFacebook
 from Carol.VoiceCommands.ShutdownComputer import ShutdownComputer
 from Carol.VoiceCommands.SearchGoogle import SearchGoogle
 from Carol.VoiceCommands.Weather import WeatherTomorrow
+from Carol.VoiceCommands.RunGame import RunKeys
 class NoMatchError(Exception):
     pass
 
@@ -24,6 +25,7 @@ class CommandChecker:
         self.commandsList.append(ShutdownComputer())
         self.commandsList.append(SearchGoogle())
         self.commandsList.append(WeatherTomorrow())
+        self.commandsList.append(RunKeys())
     def checkForMatches(self, text):
         matchFound = False
         for command in self.commandsList:
