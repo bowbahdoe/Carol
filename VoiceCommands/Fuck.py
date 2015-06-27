@@ -8,7 +8,7 @@ from SpeechSynthesis.speak import say
 class Fuck(Command):
     """Condemns swearing"""
     def __init__(self):
-        self.pattern = re.compile(r'fuck')
+        self.pattern = re.compile(r'f\*\*\*')
     def checkIfMatches(self, input):
         pattern = self.pattern
         if(pattern.search(input.lower()) != None):
@@ -16,4 +16,4 @@ class Fuck(Command):
         else:
             return False
     def action(self):
-        say("Watch your language. Try asking more nice like")
+        say("Watch your language.")

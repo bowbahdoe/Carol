@@ -20,6 +20,7 @@ class OpenWebsite(Command):
     def action(self):
         print "Opening Website: " + self.site
         webbrowser.open(self.site)
+        say("Opening" + self.site[self.site.index("www.")+4:])
 class OpenYoutube(OpenWebsite):
     """Opens Youtube"""
     def __init__(self):

@@ -3,7 +3,6 @@ from Carol.VoiceCommands.SingMeASong import SingMeASong
 from Carol.VoiceCommands.TellMeAJoke import TellMeAJoke
 from Carol.VoiceCommands.WhatIsColderThanCold import WhatIsColderThanCold
 from Carol.VoiceCommands.ILoveYou import ILoveYou
-from Carol.VoiceCommands.AngerTowardsCarol import AngerTowardsCarol
 from Carol.VoiceCommands.OpenWebsite import OpenYoutube,OpenGoogle,OpenFacebook
 from Carol.VoiceCommands.ShutdownComputer import ShutdownComputer
 from Carol.VoiceCommands.SearchGoogle import SearchGoogle
@@ -19,7 +18,6 @@ class CommandChecker:
         self.commandsList.append(TellMeAJoke())
         self.commandsList.append(WhatIsColderThanCold())
         self.commandsList.append(ILoveYou())
-        self.commandsList.append(AngerTowardsCarol())
         self.commandsList.append(OpenYoutube())
         self.commandsList.append(OpenGoogle())
         self.commandsList.append(OpenFacebook())
