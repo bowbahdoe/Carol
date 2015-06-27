@@ -2,8 +2,8 @@ import re
 from Carol.VoiceCommands.Command import Command
 from Carol.SpeechSynthesis import say
 pygame_installed = True
-try:pass
-    sfrom pygame.locals import *
+try:
+    from pygame.locals import *
 except ImportError:
     pygame_installed = False
 from os import path
