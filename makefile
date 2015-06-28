@@ -1,5 +1,5 @@
 all:
-	cd SpeechSynthesis;make;
+	cd Games/2048;make;
 
 clean:
 	find . -type f -name '*.pyc' -delete
