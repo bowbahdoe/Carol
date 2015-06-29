@@ -226,6 +226,12 @@ def handleKeyPress(event,turn,respawn):
             elif respawn.getTeamRespawning() == "silver":
                 key = Key(z,"North",False,"silver")
                 BOARD.addPieceToLocation(z,key)
+            for place in BOARD.board:
+                unlockedPiece = place[1]
+                lockedPiece = place[2]
+                if(not(unlockedPiece==None or lockedPiece==None)):
+                    if(lockedPiece.getTeam()==unlockedPiece.getTeam()):
+                        place[2] = None
             RESPAWNPOINTS[:] = []
             respawn.setRespawnOff()
     if tchange:

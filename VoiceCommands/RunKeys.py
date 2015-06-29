@@ -46,8 +46,8 @@ class RunKeys(Command):
 def runKeys():
     try:
         if(not pygame_java):
-            os.system("cd "+os.path.dirname(os.path.realpath(__file__))+"; cd ..;cd Games/Keys;jython main.py")
-        else:
             os.system("cd "+os.path.dirname(os.path.realpath(__file__))+"; cd ..;cd Games/Keys;python main.py")
+        else:
+            os.system("cd "+os.path.dirname(os.path.realpath(__file__))+"; cd ..;cd Games/Keys;jython main.py")
     except Exception as e:
         print e
