@@ -28,7 +28,7 @@ class RunKeys(Command):
     """Runs version 1.0 of keys"""
     def __init__(self):
 
-        self.regex = r'(run kies|frankie\'s|yankees|remkees|open keys)'
+        self.regex = r'(run kies|frankie\'s|yankees|remkees|open keys|run keys)'
         self.pattern = re.compile(self.regex)
     def checkIfMatches(self, input):
         if(not(pygame_installed) and not(pygame_java)):

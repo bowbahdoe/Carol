@@ -1,7 +1,6 @@
 print("Initializing Carol")
 isCreateConnected = False
 isLinkConnected = False
-global isLinkConnected
 try:
     from kovan import create_connect, set_create_distance, set_create_normalized_angle
     isLinkConnected = True

@@ -40,6 +40,6 @@ def runRobot():
 if __name__ == "__main__":
     try:
         import kovan
-
+        runRobot()
     except:
         run()
