@@ -6,6 +6,11 @@ from os import path
 import os
 import threading
 import platform
+try:
+    from kovan import motor
+    robot = True
+except:
+    robot = False
 def shutil_which(pgm):
     """
     python2 backport of python3's shutil.which()
@@ -23,6 +28,8 @@ class RunWords(Command):
         self.pattern = re.compile(self.regex)
     def checkIfMatches(self, input):
         if(platform.system()!="Linux"):
+            return False
+        if(robot):
             return False
         if(self.pattern.search(input.lower()) != None):
             return True
