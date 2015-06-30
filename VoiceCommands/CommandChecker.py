@@ -9,6 +9,7 @@ from Carol.VoiceCommands.SearchGoogle import SearchGoogle
 from Carol.VoiceCommands.Weather import WeatherTomorrow
 from Carol.VoiceCommands.RunKeys import RunKeys
 from Carol.VoiceCommands.Run2048 import Run2048
+from Carol.VoiceCommands.RunWords import RunWords
 class NoMatchError(Exception):
     pass
 
@@ -28,6 +29,7 @@ class CommandChecker:
         self.commandsList.append(WeatherTomorrow())
         self.commandsList.append(RunKeys())
         self.commandsList.append(Run2048())
+        self.commandsList.append(RunWords())
     def checkForMatches(self, text):
         matchFound = False
         for command in self.commandsList:
