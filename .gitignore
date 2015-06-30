@@ -3,6 +3,15 @@
 *.so
 *.class
 
-
 # Executables
 2048
+
+#Whittakers words
+STEMFILE.GEN
+INFLECTS.SEC
+INDXFILE.GEN
+EWDSLIST.GEN
+DICTFILE.GEN
+CHECKEWD.
+Utilities/Words/obj/*
+Utilities/Words/bin/*
