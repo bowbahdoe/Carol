@@ -43,6 +43,7 @@ class RunWords(Command):
 
 def runWords():
     try:
-        os.system("cd "+os.path.dirname(os.path.realpath(__file__))+"; cd ..;cd Utilities/Words; gnome-terminal -e \"bin/words\"")
+        #os.system("cd "+os.path.dirname(os.path.realpath(__file__))+"; cd ..;cd Utilities/Words; gnome-terminal -e \"bin/words\"")
+        os.system("cd "+os.path.dirname(os.path.realpath(__file__))+"; cd ..;cd Utilities/Words; python wordsGUI.py ")
     except Exception as e:
         print e
