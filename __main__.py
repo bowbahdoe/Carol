@@ -5,13 +5,20 @@ import signal
 import sys
 #set up command checker
 checker = CommandChecker.CommandChecker()
-
+try:
+    from Tkinter import *
+    speechText = StringVar()
+    gui = True
+except:
+    gui = False
 def onSpeech(recognizer, audio):
     print("something said")
     try:
         print("You said: " + recognizer.recognize(audio))
         speech = recognizer.recognize(audio)
         checker.checkForMatches(speech)
+        if gui:
+            speechText.set(speech)
     except LookupError as err:
         print("Oops! Audio not recognized")
         print err
@@ -24,12 +31,18 @@ def run():
     recognizer = sr.Recognizer()
 
     recognizerThread = recognizer.listen_in_background(audioSource,onSpeech)
-
-    while True:
-        time.sleep(0.1)
-        x = raw_input()
-        checker.checkForMatches(x)
-    pass
+    try:
+        global gui
+        gui = True
+        from carolGUI import runCarolGUI
+        runCarolGUI()
+    except ImportError:
+        global gui
+        gui = False
+        while True:
+            pass
+    except:
+        pass
 def runRobot():
     import time
     from Carol.Movement.movement import driveForwards, stopMoving
