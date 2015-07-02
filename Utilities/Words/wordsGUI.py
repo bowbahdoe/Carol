@@ -7,7 +7,8 @@ def runWords():
     def updateSpeechText(*args):
         try:
             latin = str(latinToTranslate.get())
-            translation.set(check_output("bin/words " + latin ))
+            #print "bin/words \"" + latin + "\""
+            translation.set(check_output("bin/words \"" + latin + "\"" ))
         except:
             pass
     root = Tk()
@@ -32,9 +33,12 @@ def runWords():
     for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
     root.title = "Words"
     root.bind('<Return>', updateSpeechText)
-    latin_entry.focus()
+    #latin_entry.focus()
 
 
     root.mainloop()
-    #mainloop()
-runWords()
+    mainloop()
+try:
+    runWords()
+except:
+    pass
