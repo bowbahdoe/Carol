@@ -1,2 +1,2 @@
 """module to contain all functions related to moving robots"""
-__all__ = ["movement"]
+__all__ = ["movement","create_movement"]
