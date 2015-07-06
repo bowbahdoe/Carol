@@ -33,3 +33,18 @@ def median(data):
         return average(sortedList[(lengthOfSortedList/2)-1:lengthOfSortedList/2])
     else:
         return sortedList[(lengthOfSortedList/2)-1]
+def quickSort(data):
+    pass
+def bubbleSort(data):
+    length = len(data)
+    sortedList = []
+    while(len(sortedList)<length):
+        currentHighest = data[0]
+        for i in range(data):
+            if(data[i]>currentHighest):
+                currentHighest = data[i]
+        sortedList.append(currentHighest)
+    return reversed(sortedList)
+        
+def mergeSort(data):
+    pass
