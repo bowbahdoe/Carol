@@ -34,10 +34,28 @@ class Board:
         #
         #The third item is for storing any locked keys
         #otherwise it will be None
+    def reset(self):
+        for location in self.board:
+            location[2]=None
+            location[1]=None
+        self.setup()
+    def isGameOver(self):
+        silver = 0
+        gold = 0
+        for location in self.board:
+            unlockedPiece = location[1]
+            if(unlockedPiece)!=None:
+                if(unlockedPiece.getTeam()=="gold"):
+                    gold+=1
+                else:
+                    silver+=1
+        if gold == 0 or silver == 0:
+            return True
+        else:
+            return False
     def _makeLocCartesian(self, Loc):
         returner = []
         locDic = {"A":1,"B":2,"C":3,"D":4,"E":5,"F":6,"G":7,"H":8}
-
 
         returner.append(locDic[Loc[0]])
         returner.append(int(Loc[1]))
@@ -97,6 +115,7 @@ class Board:
         #just getting moved to the unlocked space
         Loc = self._findLocationIndexById(loc)
         if self.board[Loc][2]!= None:
+
             self.board[Loc][2] = None
 
         else:
