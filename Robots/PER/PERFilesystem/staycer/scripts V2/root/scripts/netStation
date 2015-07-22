@@ -1,0 +1,18 @@
+# copy necessary files over
+if [ ! -e /etc/pcmcia/network.opts.station -o ! -e /etc/pcmcia/wireless.opts.station ]
+then
+	echo "Necessary files are missing!"
+	exit 1
+fi
+	
+if [ $# == 1 ]
+then
+	echo "Using base stations on network $1 with DHCP on"
+	cat /etc/pcmcia/wireless.opts.station | sed s/CMU/$1/ > /etc/pcmcia/wireless.opts 
+else
+	cp /etc/pcmcia/wireless.opts.station /etc/pcmcia/wireless.opts
+	echo "Using station on network CMU with DHCP on"
+fi
+
+cp /etc/pcmcia/network.opts.station /etc/pcmcia/network.opts
+/etc/init.d/pcmcia restart

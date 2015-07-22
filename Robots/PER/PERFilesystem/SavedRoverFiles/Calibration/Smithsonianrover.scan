@@ -1,0 +1,15 @@
+scan	pan -12	tilt -33	thresh 107
+scan	pan 0	tilt -33	thresh 107
+scan	pan 12	tilt -33	thresh 107
+scan	pan 0	tilt -23	thresh 120 picture
+scan	pan 24	tilt -31	thresh 80
+scan	pan 37	tilt -20	thresh 70
+scan	pan 28	tilt -21	thresh 78
+scan	pan 19	tilt -22	thresh 96
+scan	pan 10	tilt -23	thresh 118
+scan	pan 0	tilt -23	thresh 120 picture
+scan	pan -10	tilt -23	thresh 118
+scan	pan -19	tilt -22	thresh 96
+scan	pan -28	tilt -21	thresh 78
+scan	pan -37	tilt -20	thresh 70
+scan	pan -24	tilt -31	thresh 80

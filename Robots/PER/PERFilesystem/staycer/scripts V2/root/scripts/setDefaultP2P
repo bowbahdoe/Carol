@@ -1,0 +1,25 @@
+if [ ! -e /etc/pcmcia/network.opts.p2p -o ! -e /etc/pcmcia/wireless.opts.p2p ]
+then
+	echo "Necessary files are missing!"
+	exit 1
+fi
+
+if [ $# == 3 ]
+then
+	#check if 0 <= $2, $3 < 255
+	if [ $2 -ge 0 -a $3 -ge 0 -a $2 -lt 255 -a $3 -lt 255 ]
+	then
+		cat /etc/pcmcia/wireless.opts.p2p | sed s/protonet/$1/ > /etc/pcmcia/wireless.opts.p2p.def
+		cat /etc/pcmcia/network.opts.p2p | sed s/SuB/$2/ > .nettmp
+		cat .nettmp | sed s/LaSt/$3/ > /etc/pcmcia/network.opts.p2p.def
+		rm .nettmp
+		echo "The default peer to peer IP address is 192.168.$2.$3 on the network $1" > /etc/pcmcia/defaultP2P.txt
+		cat /etc/pcmcia/defaultP2P.txt
+	else
+		echo "arguments 2 and 3 must be between 0 and 254"
+		exit 1
+	fi
+else
+	echo "Usage: ./setDefaultP2P network subnet addr"
+	echo "eg. './setDefaultP2P RoverNet 2 9' sets the default network to RoverNet and the default IP address to 192.168.2.9"
+fi

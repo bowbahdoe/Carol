@@ -1,0 +1,13 @@
+if [ ! -e /etc/pcmcia/network.opts.p2p.def -o ! -e /etc/pcmcia/wireless.opts.p2p.def ]
+then
+	echo "You must run setDefaultP2P first!"
+	exit 1
+fi
+
+cp /etc/pcmcia/network.opts.p2p.def /etc/pcmcia/network.opts
+cp /etc/pcmcia/wireless.opts.p2p.def /etc/pcmcia/wireless.opts
+
+cat /etc/pcmcia/defaultP2P.txt
+echo "Changing to the default peer to peer configuration. . ."
+
+/etc/init.d/pcmcia restart

@@ -1,0 +1,23 @@
+#SCHEME=""
+if [ -f /etc/wireless-scheme ]; then
+   #SCHEME=`cat /etc/wireless-scheme`
+   . /etc/wireless-scheme
+fi
+
+case "$SCHEME,$ADDRESS" in
+ixswmesh,*,*,*,*)
+    ESSID="IXSWMESH"
+    MODE="Ad-Hoc"
+    CHANNEL="1"
+    RATE="2M fixed"
+    KEY="1234ABCD1234ABCD1234ABCD12"
+    IWCONFIG="txpower 30mW"
+    ;;
+*,*,*,*,*)
+    ESSID="CMU"
+    MODE="Managed"
+    #CHANNEL="11"
+    #RATE="2M fixed"
+    #IWCONFIG="txpower 30mW"
+    ;;
+esac

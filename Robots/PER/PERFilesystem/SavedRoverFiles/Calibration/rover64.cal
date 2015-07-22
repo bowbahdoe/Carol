@@ -1,0 +1,8 @@
+pan	center 132	range 290
+tilt	center 108	range 78
+servo0	center 115	range -105
+servo1	center 117	range -105
+servo2	center 124	range -105
+servo3	center 127	range -105
+turn_adjust	99
+drive_adjust	95

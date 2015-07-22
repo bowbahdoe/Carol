@@ -1,0 +1,26 @@
+# copy necessary files over
+if [ ! -e /etc/pcmcia/network.opts.p2p -o ! -e /etc/pcmcia/wireless.opts.p2p ]
+then
+	echo "Necessary files are missing!"
+	exit 1
+fi
+
+if [ $# == 2 ]
+then
+	#check if 0 <= $1, $2 < 255
+	if [ $1 -ge 0 -a $2 -ge 0 -a $1 -lt 255 -a $2 -lt 255 ]
+	then
+		echo "DHCP is off and ip is 192.168.$1.$2"
+		#set the network to be on the right subnet
+		cat /etc/pcmcia/network.opts.p2p | sed s/SuB/$1/ > .nettmp
+		cat .nettmp | sed s/LaSt/$2/ > /etc/pcmcia/network.opts
+		rm .nettmp
+		/etc/init.d/pcmcia restart
+	else
+		echo "both arguments must be between 0 and 254"
+		exit 1
+	fi
+else
+	echo "You must enter two arguments"
+fi
+

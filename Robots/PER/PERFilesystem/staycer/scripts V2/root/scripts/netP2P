@@ -1,0 +1,22 @@
+if [ ! -e /etc/pcmcia/network.opts.p2p -o ! -e /etc/pcmcia/wireless.opts.p2p ]
+then
+	echo "Necessary files are missing!"
+	exit 1
+fi
+
+if [ $# == 3 ]
+then
+	#check if 0 <= $2, $3 < 255
+	if [ $2 -ge 0 -a $3 -ge 0 -a $2 -lt 255 -a $3 -lt 255 ]
+	then
+		echo "Using p2p on network $1"
+		cat /etc/pcmcia/wireless.opts.p2p | sed s/protonet/$1/ > /etc/pcmcia/wireless.opts
+		/root/scripts/setIP $2 $3 
+	else
+		echo "arguments 2 and 3 must be between 0 and 254"
+		exit 1	
+	fi
+else
+	echo "Usage: ./netP2P network subnet addr"
+	echo "eg. './netP2P robo 2 9' sets network to robo and the IP address to 192.168.2.9"
+fi

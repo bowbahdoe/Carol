@@ -1,0 +1,7 @@
+if [ ! -e /etc/pcmcia/defaultP2P.txt ]
+then
+	echo "There is no default peer to peer configuration!"
+	exit 1
+fi
+
+cat /etc/pcmcia/defaultP2P.txt

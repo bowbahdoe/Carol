@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>JavaScriptCam</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<!-- Script stolen from GeneriCam - http://occonnect.com/johnqpublic
+     Thanks to the Nose, Sito and S.A. Dave -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- hide
+
+// browser sniffer:
+browserVer = parseInt(navigator.appVersion);
+if (navigator.appName == "Microsoft Internet Explorer" && browserVer < 4)
+{
+alert("Internet Explorer 3 users need to hit 'Refesh' to update the image");
+}
+
+//this eliminates JavaScript error messages
+onError=null
+
+// The variables you need to change are: the filename of the picture,
+// the refresh rate, the expected time to download and further down,
+// the FORM ACTION (look for the ***).
+var picname = "c:\\RoverDev\\streamcam.jpg";  // set this to the filename of your campicture
+var speed = 5;  // "var speed" is the refresh rate adjustment in seconds
+var y = 1;      // expected time to download the picture file. It  MUST be
+                 // set at a smaller number than the "speed" variable!
+
+var x = speed;   // current countdown
+var cachepic = new Image();
+
+// Change "JSCamRemote.html" to whatever you want to call the page that 
+// opens in the remote window. 
+
+function openremoteWindow()
+	{
+	stopClock();
+	open ("JSCamRemote.html","JSCamRemote", "height=310,width=340,scrollbars=0,resizable=yes,status=0")
+	}
+
+function stopClock() {
+	x = "00";
+	document.form0.clock.value = x;
+}
+
+function startClock() {
+        if (x != "00") {
+	x = x - 1;
+	document.form0.clock.value = x;
+         if (x == y) {
+          recache()
+        }
+	if (x <= 0)
+        {
+          reload()
+        }
+	timerID = setTimeout("startClock()", 1000);
+        }
+}
+
+function recache() {
+      var now = new Date();
+      var camImg = picname + "?" + now.getTime();
+      cachepic.src = camImg;
+    }
+
+function reload() {
+    document.images.campicture.src = cachepic.src;
+    x = speed;
+    document.form0.clock.value = x;
+              	  }
+
+//end hide -->
+</SCRIPT>
+
+
+
+<BODY BGCOLOR="#ffffff" TEXT="#000066" LINK="#0066ff" ALINK="#ff0000" 
+VLINK="#00aaff">
+
+<TABLE WIDTH="100%" HEIGHT="50" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+  <TR>
+    <TD ALIGN="CENTER" BGCOLOR="#aaddff" HEIGHT="5"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0">
+<TR><TD></TD></TR></TABLE></TD>
+  </TR>
+  <TR>
+    <TD ALIGN="CENTER" BGCOLOR="#ffffff"><FONT FACE="ARIAL" SIZE="6" 
+    COLOR="#000099"><B>JavaScriptCam</B></FONT></TD>
+  </TR>
+  <TR>
+    <TD ALIGN="CENTER" BGCOLOR="#aaddff" HEIGHT="5"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0">
+<TR><TD></TD></TR></TABLE></TD>
+  </TR>
+</TABLE>
+
+<!-- In the section below, change the form "action" to the name of your page
+// (this one) and change "CamPic.jpg" to whatever you call your cam image -->
+
+<FORM ACTION="JScam.html" NAME="form0">
+<CENTER>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="ffffff">
+<TR><TD ALIGN="center"><A HREF="javascript:openremoteWindow()"><IMG 
+NAME="campicture" SRC="c:\RoverDev\streamcam.jpg" ALT="Picture" BORDER="0" HEIGHT="240" 
+WIDTH="320" RELOAD="30"></A></TD>
+</TR>
+</TABLE>
+<FONT SIZE="2">Image will reload in <INPUT TYPE="text" NAME="clock" SIZE="3" VALUE=""> seconds.</FONT>
+<BR>
+</CENTER>
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD WIDTH="100%" ALIGN="CENTER" COLSPAN="2"><FONT SIZE="3">Click on the image for a remote window.</FONT>
+<BR>
+<FONT SIZE="3">PLEASE DO NOT HIT RELOAD!!</FONT></TD>
+</TR>
+</TABLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- hide
+startClock()
+//end hide -->
+</SCRIPT>
+
+</body>
+</html>

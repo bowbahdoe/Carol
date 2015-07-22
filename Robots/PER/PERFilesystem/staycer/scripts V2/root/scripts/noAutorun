@@ -1,0 +1,7 @@
+if [ -e /etc/rc2.d/S92exhibit ]
+then
+	mv /etc/rc2.d/S92exhibit /etc/rc2.d/.S92exhibit
+	echo "exhibit has been uninstalled"
+else
+	echo "exhibit is not installed to run automatically"
+fi

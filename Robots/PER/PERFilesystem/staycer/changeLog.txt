@@ -1,0 +1,61 @@
+Cerebellum version numbers:
+
+1.0 
+original
+
+1.1
+Slows down max speed of tilt from 5 to 4.
+Caps speed of steering servos at 4.
+For those 5 servos, remembers the last position.
+
+1.2
+Slows down tilt speed to 3.
+
+1.3
+Tilt speed is now back up to 4.
+Small changes to how the servos move
+
+1.5
+Changed the range of the steering servos.  Before the cerebellum was capable of sending the steering servos pulses that were too long and too short for the servo to handle.  The original servos on the prototype could handle these pulses, but the production servos cannot.  Because I have decreased the range of pulses, you need to change the servo range in the calibration program.  The servo range of the steering servos needs to be reduced from -105 to -97.
+
+Exhibit version numbers:
+
+1.0
+Original version in the museums.
+
+1.1
+Slows down the drive motors to 80% on driveTo and turnTo
+It's now a bit easier to get into Diagnostic.  Starts checking about 2 seconds after head nods and keeps checking for another 4.5 seconds.
+
+1.2
+Fixed the speed that the Stayton thinks the servos move so that it is the speed that the cerebellum now moves the servos in version 1.3.
+(Note that exhibit1.2 is internally labeled 1.0.0.)
+
+2.0.1
+This is the first released version of the code that supports resource locking.
+The tracking algorithm is improved so that the head won't oscillate.
+Added Motion detection.
+Has the ability to switch networks without a remote computer.
+
+2.1
+This has the code which allows the rover to track it's coordinates.
+It also has the change necessary for the calibration of the new faster motors.
+
+2.2
+(Note that exhibit2.2 is internally labeled 2.0.1.)
+
+3.0 introduced April 2005
+Two demos, wall follow and line follow, added after the start up self test. Fixed a bug 
+with the resource locking. When the tilt is not locked it now reports 0 rather than 1
+to the resource lock bit. This version of firmware is not completely compatible with 
+PER offboard software earlier than 5.2. In version 5.2 of the offboard software,
+the scan timeouts have been increased to allow for the longer scan times associated
+with this version of the onboard firmware.
+
+cerebdl version numbers:
+
+1.0
+Original version to download code to the cerebellum
+
+103d introduced Jan 10, 2005
+Adapted to program cerebellums with firmware version 103d. Does not work with other versions of firmware.

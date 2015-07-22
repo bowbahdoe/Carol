@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScriptCam Remote</TITLE>
+</HEAD>
+<!-- Script stolen from GeneriCam - http://occonnect.com/johnqpublic
+     Thanks to the Nose, Sito and S.A. Dave -->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+var raiseOnRefresh = true; 
+// +++ default: bring to front whenever the image refreshes.
+// change to false to open the window with it disabled.
+
+// The variables you need to change are these three,
+// and further down the FORM ACTION and IMG SRC (look for the ***).
+
+var picname = "c:\\RoverDev\\streamcam.jpg";  // set this to the filename of your campicture
+var speed = 5;  // refresh rate in seconds
+var y = 1;      // expected time to download the picture file
+
+var x = speed;   // current countdown
+cachepic = new Image();
+
+function startClock() {
+        if (x != "00") {
+	x = x - 1;
+	document.form0.clock.value = x;
+         if (x == y) {
+          recache()
+        }
+	if (x <= 0)
+        {
+          reload();
+        if (raiseOnRefresh) this.focus();  //+++ raise the window
+        }
+	timerID = setTimeout("startClock()", 1000);
+        }
+}
+
+function recache() {
+      var now = new Date();
+      var camImg = picname + "?" + now.getTime();
+      cachepic.src = camImg;
+    }
+
+function reload() {
+    document.images.campicture.src = cachepic.src;
+    x = speed;
+    document.form0.clock.value = x;
+              	  }
+
+
+    function resize(w,h)
+    {
+      self.resizeTo(w,h)
+    }
+
+//end hide -->
+</SCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+<CENTER>
+
+<!-- *** In the section below, change the form "action" to the name of your page (this one) *** -->
+
+<FORM ACTION="JSCamRemote.html" NAME="form0">
+<A HREF="javascript:void(0)" onClick="raiseOnRefresh = !raiseOnRefresh;">
+   <IMG NAME="campicture" SRC="c:\\roverdev\\streamcam.jpg" ALT="Picture" BORDER="0" 
+   WIDTH="99%" RELOAD="30"></A>
+<BR>
+
+
+<FONT SIZE="2">Image will reload in <INPUT TYPE="text" NAME="clock" SIZE="4" VALUE="" READONLY> seconds.</FONT>
+<BR>
+<FONT SIZE="3">Click on the image to disable/enable auto-raise.</FONT>
+
+<!-- This offers standard resizes to your viewer, adjust the parameters for your
+     picture size, uncomment this section to activate.
+ -->
+      <DIV>
+        <A HREF="JavaScript:resize(650,550)">2x</A>&nbsp;&nbsp;&nbsp;
+        <A HREF="JavaScript:resize(340,310)">1x</A>&nbsp;&nbsp;&nbsp;
+        <A HREF="JavaScript:resize(170,250)">&frac12;x</A><BR>
+      </DIV>
+
+</CENTER>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- hide
+startClock()
+//end hide -->
+</SCRIPT>
+
+</BODY>
+</HTML>
+

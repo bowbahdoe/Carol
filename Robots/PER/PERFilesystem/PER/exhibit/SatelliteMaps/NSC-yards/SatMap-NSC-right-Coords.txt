@@ -1,0 +1,8 @@
+numMapPoints 5
+172 6
+246 80
+296 261
+82 261
+0 177
+sun 226 62
+yardWidthInInches 135

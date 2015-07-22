@@ -1,0 +1,11 @@
+if [ -e /etc/rc2.d/S92exhibit ]
+then
+	echo "Already set up for autorun."
+else
+	mv /etc/rc2.d/.S92exhibit /etc/rc2.d/S92exhibit
+	echo "exhibit has been installed to run automatically"
+	if [ ! -e /root/exhibit ]
+	then
+	 	echo "but the exhibit program is not in /root"
+	fi
+fi
