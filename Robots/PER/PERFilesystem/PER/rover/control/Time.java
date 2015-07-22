@@ -2,7 +2,7 @@
 //  Time.java
 //  Trikebot
 //
-//  Created by Andrés Santiago Pérez-Bergquist on Wed Jun 19 2002.
+//  Created by Andrs Santiago Prez-Bergquist on Wed Jun 19 2002.
 //  Copyright (c) 2002. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ import java.util.*;
  * <code>current</code> returns the current time in milliseconds, and
  * <code>sleep</code> sleeps a number of milliseconds.
  *
- *@author Andrés Santiago Pérez-Bergquist
+ *@author Andrs Santiago Prez-Bergquist
  */
 
 
