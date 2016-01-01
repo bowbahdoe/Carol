@@ -111,7 +111,7 @@ class Rect(Rectangle):
         """
         Return string representation of Rect object.
         """
-        return "%s(%s)" % (self.__class__, self.toString())
+        return "{0!s}({1!s})".format(self.__class__, self.toString())
 
     def __getattr__(self, attr):
         """

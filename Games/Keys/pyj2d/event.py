@@ -292,10 +292,10 @@ class Event(object):
             """
             Return string representation of Event object.
             """
-            return "%s(%s-UserEvent %r)" % (self.__class__, self.type, self.attr)
+            return "{0!s}({1!s}-UserEvent {2!r})".format(self.__class__, self.type, self.attr)
 
         def __setattr__(self, attr, value):
-            raise AttributeError, ("'Event' object has no attribute '%s'" % attr)
+            raise AttributeError, ("'Event' object has no attribute '{0!s}'".format(attr))
 
 
     class JEvent(object):
@@ -325,7 +325,7 @@ class Event(object):
             Return string representation of Event object.
             """
             try:
-                return "%s(%s)" % (self.__class__, self.event.toString())
+                return "{0!s}({1!s})".format(self.__class__, self.event.toString())
             except AttributeError:      #User Event
                 return self.event.__repr__()
 
@@ -362,12 +362,12 @@ class Event(object):
                     try:
                         return self.event.__getattribute__('attr')[attr]
                     except AttributeError:
-                        raise AttributeError, ("'Event' object has no attribute '%s'" % attr)
+                        raise AttributeError, ("'Event' object has no attribute '{0!s}'".format(attr))
                     except KeyError:
-                        raise AttributeError, ("'Event' object has no attribute '%s'" % attr)
+                        raise AttributeError, ("'Event' object has no attribute '{0!s}'".format(attr))
 
         def __setattr__(self, attr, value):     #0.22
-            raise AttributeError, ("'Event' object has no attribute '%s'" % attr)
+            raise AttributeError, ("'Event' object has no attribute '{0!s}'".format(attr))
 
         def getEvent(self):
             """
