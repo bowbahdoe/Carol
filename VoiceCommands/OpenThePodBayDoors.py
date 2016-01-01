@@ -7,7 +7,7 @@ class OpenThePodBayDoors(Command):
         self.regex = "pod bay doors"
         self.pattern = re.compile(self.regex)
     def checkIfMatches(self, input):
-        if(self.pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) is not None):
             return True
         else:
             return False

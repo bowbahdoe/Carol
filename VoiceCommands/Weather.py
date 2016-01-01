@@ -18,7 +18,7 @@ class WeatherTomorrow(Command):
     def checkIfMatches(self, input):
         if(not(forecast_api_exists)):
             return False
-        if(self.pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) is not None):
             return True
         else:
             return False

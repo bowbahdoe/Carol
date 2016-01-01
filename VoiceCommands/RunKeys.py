@@ -22,7 +22,7 @@ try:
     from pygame.locals import *
 except ImportError:
     pygame_installed = False
-    if(shutil_which("jython")!=None):
+    if(shutil_which("jython")is notNone):
         pygame_java = True
 class RunKeys(Command):
     """Runs version 1.0 of keys"""
@@ -33,7 +33,7 @@ class RunKeys(Command):
     def checkIfMatches(self, input):
         if(not(pygame_installed) and not(pygame_java)):
             return False
-        if(self.pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) is not None):
             return True
         else:
             return False

@@ -8,7 +8,7 @@ class SearchGoogle(Command):
         self.regex = r'search for'
         self.pattern = re.compile(self.regex)
     def checkIfMatches(self, input):
-        if(self.pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) is not None):
             self.site+=input[input.find("search for")+11:]
             return True
             print self.site

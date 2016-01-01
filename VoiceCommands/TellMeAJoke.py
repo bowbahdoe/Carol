@@ -14,7 +14,7 @@ class TellMeAJoke(Command):
     def __init__(self):
         self.pattern = re.compile(r'tell me a joke')
     def checkIfMatches(self, input):
-        if(self.pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) is not None):
             return True
         else:
             return False

@@ -18,7 +18,7 @@ def say(words):
     flite = shutil_which("flite")
     if(platform.system() == 'Darwin'):
         command = "say " + words
-    elif flite == None:
+    elif flite is None:
         command = "espeak  '" + words + "'" #-ven+f3 -p50 -s150
     else:
         command = "padsp flite -voice slt -t '" + words + "'" #kal16
