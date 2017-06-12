@@ -62,7 +62,7 @@ class Surface(BufferedImage):
                 isRasterPremultiplied = arg[0].isAlphaPremultiplied()
                 properties = Hashtable()
                 keys = arg[0].getPropertyNames()
-                if keys != None:
+                if keys is not None:
                     for key in keys:
                         properties.put(key,arg[0].getProperty(key))
             except AttributeError:
@@ -115,7 +115,7 @@ class Surface(BufferedImage):
         if not self._super_surface:
             img_properties = Hashtable()
             keys = self.getPropertyNames()
-            if keys != None:
+            if keys is not None:
                 for key in keys:
                     img_properties.put(key,self.getProperty(key))
             surface = Surface(

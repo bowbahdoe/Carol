@@ -11,7 +11,7 @@ class ILoveYou(Command):
         self.pattern =re.compile(r'i love you')
     def checkIfMatches(self, input):
         pattern = self.pattern
-        if(pattern.search(input.lower()) != None):
+        if(pattern.search(input.lower()) is not None):
             return True
         else:
             return False

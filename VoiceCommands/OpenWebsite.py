@@ -13,7 +13,7 @@ class OpenWebsite(Command):
         self.regex = r''
         self.pattern = ""
     def checkIfMatches(self, input):
-        if(self.pattern.search(input.lower()) != None):
+        if(self.pattern.search(input.lower()) is not None):
             return True
         else:
             return False

@@ -44,7 +44,7 @@ class Board:
         gold = 0
         for location in self.board:
             unlockedPiece = location[1]
-            if(unlockedPiece)!=None:
+            if(unlockedPiece)is notNone:
                 if(unlockedPiece.getTeam()=="gold"):
                     gold+=1
                 else:
@@ -104,7 +104,7 @@ class Board:
         pass
     def lockPieceAtLocation(self,loc):
         Loc = self._findLocationIndexById(loc)
-        if self.board[Loc][1]!= None and self.board[2]==None:
+        if self.board[Loc][1]is not None and self.board[2]isNone:
             self.board[Loc][2] = self.board[Loc][1]
             self.board[Loc][1] = None
             self.board[Loc][2].setLocked(True)
@@ -114,7 +114,7 @@ class Board:
         #TODO make it so the piece is reset to a spawn point instead of
         #just getting moved to the unlocked space
         Loc = self._findLocationIndexById(loc)
-        if self.board[Loc][2]!= None:
+        if self.board[Loc][2]is not None:
 
             self.board[Loc][2] = None
 
@@ -123,13 +123,13 @@ class Board:
     def isPieceAtLocation(self,loc):
         loc = self._findLocationIndexById(loc)
 
-        if self.board[loc][1] != None:
+        if self.board[loc][1] is not None:
             return True
         else:
             return False
     def isLockedPieceAtLocation(self,loc):
         loc = self._findLocationIndexById(loc)
-        if self.board[loc][2] != None:
+        if self.board[loc][2] is not None:
             return True
         else:
             return False
@@ -170,7 +170,7 @@ class Board:
 
                     done = True
 
-                elif self.getPieceAtLocation(oneabove) == None:
+                elif self.getPieceAtLocation(oneabove) is None:
 
                     returner.append(oneabove)
                     oneabove = (oneabove[0]-1,oneabove[1])
@@ -192,7 +192,7 @@ class Board:
             while done==False:
                 if upleft[1]<1 or upleft[0]<1:
                     done = True
-                elif self.getPieceAtLocation(upleft) == None:
+                elif self.getPieceAtLocation(upleft) is None:
                     returner.append(upleft)
                     upleft = (upleft[0]-1 ,upleft[1]-1)
                 elif self.getPieceAtLocation(upleft).getTeam() != key.getTeam():
@@ -206,7 +206,7 @@ class Board:
             while done==False:
                 if upright[1]>8 or upright[0]<1:
                     done = True
-                elif self.getPieceAtLocation(upright) == None:
+                elif self.getPieceAtLocation(upright) is None:
                     returner.append(upright)
                     upright = (upright[0]-1 ,upright[1]+1)
                 elif self.getPieceAtLocation(upright).getTeam() != key.getTeam():
@@ -219,7 +219,7 @@ class Board:
             while done == False:
                 if oneleft[1] <1:
                     done = True
-                elif self.getPieceAtLocation(oneleft) == None:
+                elif self.getPieceAtLocation(oneleft) is None:
                     returner.append(oneleft)
                     oneleft = (oneleft[0] ,oneleft[1]-1)
                 elif self.getPieceAtLocation(oneleft).getTeam() != key.getTeam():
@@ -243,7 +243,7 @@ class Board:
             while done==False:
                 if downleft[1]<1 or downleft[0]>8:
                     done = True
-                elif self.getPieceAtLocation(downleft) == None:
+                elif self.getPieceAtLocation(downleft) is None:
                     returner.append(downleft)
                     downleft = (downleft[0]+1 ,downleft[1]-1)
                 elif self.getPieceAtLocation(downleft).getTeam() != key.getTeam():
@@ -257,7 +257,7 @@ class Board:
                 if onebelow[0] >8:
 
                     done = True
-                elif self.getPieceAtLocation(onebelow) == None:
+                elif self.getPieceAtLocation(onebelow) is None:
                     returner.append(onebelow)
                     onebelow = (onebelow[0]+1,onebelow[1])
                 elif self.getPieceAtLocation(onebelow).getTeam() != key.getTeam():
@@ -272,7 +272,7 @@ class Board:
             while done==False:
                 if downright[1]>8 or downright[0]>8:
                     done = True
-                elif self.getPieceAtLocation(downright) == None:
+                elif self.getPieceAtLocation(downright) is None:
                     returner.append(downright)
                     downright = (downright[0]+1 ,downright[1]+1)
                 elif self.getPieceAtLocation(downright).getTeam() != key.getTeam():
@@ -286,7 +286,7 @@ class Board:
 
                 if oneright[1] >8:
                     done = True
-                elif self.getPieceAtLocation(oneright) == None:
+                elif self.getPieceAtLocation(oneright) is None:
                     returner.append(oneright)
                     oneright = (oneright[0] ,oneright[1] + 1)
                 elif self.getPieceAtLocation(oneright).getTeam() != key.getTeam():
@@ -373,11 +373,11 @@ class Board:
         returner = []
         if team == "gold":
             for loc in gold:
-                if self.getPieceAtLocation(loc) == None:
+                if self.getPieceAtLocation(loc) is None:
                     returner.append(loc)
         if team == "silver":
             for loc in silver:
-                if self.getPieceAtLocation(loc) == None:
+                if self.getPieceAtLocation(loc) is None:
                     returner.append(loc)
         return returner
     def setup(self):

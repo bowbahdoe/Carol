@@ -82,7 +82,7 @@ def _makeLocAlphaNumeric(Loc):
     return returner
 def drawKeyAtLoc(DISP,key,loc):
 
-    if (key)!=None:
+    if (key)is notNone:
 
         texture = key.getTexture()
         loc = _makeLocCartesian(loc)
@@ -168,11 +168,11 @@ def handleKeyPress(event,turn,respawn):
     lockedPieceAtDest = BOARD.getLockedPieceAtLocation(z)
     unlockedPieceAtDest = BOARD.getPieceAtLocation(z)
     if tuple(_makeLocCartesian(z)) in SQUARESTOHIGHLIGHT and not a:
-        if unlockedPieceAtDest!= None:
+        if unlockedPieceAtDestis not None:
 
             if unlockedPieceAtDest.getTeam() != BOARD.getPieceAtLocation(turn.pieceSelected).getTeam():
                 BOARD.addLockedPieceToLocation(z,unlockedPieceAtDest)
-        if lockedPieceAtDest != None:
+        if lockedPieceAtDest is not None:
             if lockedPieceAtDest.getTeam() == BOARD.getPieceAtLocation(turn.pieceSelected).getTeam():
                 respawn.setRespawnOn(lockedPieceAtDest.getTeam())
                 #BOARD.unlockPieceAtLocation(z)
@@ -233,7 +233,7 @@ def handleKeyPress(event,turn,respawn):
             for place in BOARD.board:
                 unlockedPiece = place[1]
                 lockedPiece = place[2]
-                if(not(unlockedPiece==None or lockedPiece==None)):
+                if(not(unlockedPieceisNone or lockedPieceisNone)):
                     if(lockedPiece.getTeam()==unlockedPiece.getTeam()):
                         place[2] = None
     if tchange:
