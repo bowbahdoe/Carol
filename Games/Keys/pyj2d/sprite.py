@@ -37,7 +37,7 @@ class Sprite(object):
         """
         Return string representation of Sprite object.
         """
-        return "%s(in %d groups)" % (self.__class__, len(self.groups()))
+        return "{0!s}(in {1:d} groups)".format(self.__class__, len(self.groups()))
 
     def add(self, *groups):
         """
@@ -138,7 +138,7 @@ class Group(object):
         """
         Return string representation of Group object.
         """
-        return "%s(%d sprites)" % (self.__class__, len(self._sprites))
+        return "{0!s}({1:d} sprites)".format(self.__class__, len(self._sprites))
 
     def __iter__(self):
         """

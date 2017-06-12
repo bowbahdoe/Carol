@@ -108,7 +108,7 @@ class Font(JFont):
         """
         Return string representation of Font object.
         """
-        return "%s(%r)" % (self.__class__, self.__dict__)
+        return "{0!s}({1!r})".format(self.__class__, self.__dict__)
 
     def render(self, text, antialias, color, background=None):
         """

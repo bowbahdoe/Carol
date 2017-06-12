@@ -168,7 +168,7 @@ class Recognizer(AudioSource):
             os.chmod(flac_converter, stat_info.st_mode | stat.S_IEXEC)
         except OSError: pass
 
-        process = subprocess.Popen("\"%s\" --stdout --totally-silent --best -" % flac_converter, stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
+        process = subprocess.Popen("\"{0!s}\" --stdout --totally-silent --best -".format(flac_converter), stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
         flac_data, stderr = process.communicate(wav_data)
         return flac_data
 
@@ -298,8 +298,8 @@ class Recognizer(AudioSource):
         """
         assert isinstance(audio_data, AudioData), "Data must be audio data"
 
-        url = "http://www.google.com/speech-api/v2/recognize?client=chromium&lang=%s&key=%s" % (self.language, self.key)
-        self.request = Request(url, data = audio_data.data, headers = {"Content-Type": "audio/x-flac; rate=%s" % audio_data.rate})
+        url = "http://www.google.com/speech-api/v2/recognize?client=chromium&lang={0!s}&key={1!s}".format(self.language, self.key)
+        self.request = Request(url, data = audio_data.data, headers = {"Content-Type": "audio/x-flac; rate={0!s}".format(audio_data.rate)})
         
         # check for invalid key response from the server
         try:

@@ -95,7 +95,7 @@ class Mask(object):
         """
         Return string representation of Mask object.
         """
-        return "%s(%r)" % (self.__class__, self.__dict__)
+        return "{0!s}({1!r})".format(self.__class__, self.__dict__)
 
     def get_size(self):
         """

@@ -78,7 +78,7 @@ class Surface(BufferedImage):
         """
         Return string representation of Surface object.
         """
-        return "%s(%s, %r)" % (self.__class__, self.toString(), self.__dict__)
+        return "{0!s}({1!s}, {2!r})".format(self.__class__, self.toString(), self.__dict__)
 
     def get_size(self):
         """
